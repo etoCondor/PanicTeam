@@ -17,10 +17,10 @@ let addNews = function (e) {
   var author = document.createElement("div");
   author.classList.add("author");
   author.innerHTML = "Condor<br> 09.09.2020";
-  news.appendChild(pNews);
-  news.appendChild(author);
+  news.append(pNews);
+  news.append(author);
   //добавляю внутренности в новость
-  content.appendChild(news);
+  content.append(news);
 
   var news = document.createElement("div");
   news.classList.add("news");
@@ -30,10 +30,10 @@ let addNews = function (e) {
   var author = document.createElement("div");
   author.classList.add("author");
   author.innerHTML = "Condor<br> 07.04.2019";
-  news.appendChild(pNews);
-  news.appendChild(author);
+  news.append(pNews);
+  news.append(author);
   //добавляю внутренности в новость
-  content.appendChild(news);
+  content.append(news);
 
   var news = document.createElement("div");
   news.classList.add("news");
@@ -43,10 +43,10 @@ let addNews = function (e) {
   var author = document.createElement("div");
   author.classList.add("author");
   author.innerHTML = "Condor<br> 07.04.2019";
-  news.appendChild(pNews);
-  news.appendChild(author);
+  news.append(pNews);
+  news.append(author);
   //добавляю внутренности в новость
-  content.appendChild(news);
+  content.append(news);
 
   //убираю событие клика по строке "Новости"
   navNews.removeEventListener("click", addNews);
@@ -90,9 +90,9 @@ let addPlayers = function (e) {
       PlayerName.innerHTML = `<a href="${post.bnetaccount}" target='_blank'>${post.nickname}</a>`;
       const Playerdesc = document.createElement("p");
       Playerdesc.textContent = post.league;
-      Player.appendChild(PlayerName);
-      Player.appendChild(Playerdesc);
-      content.appendChild(Player);
+      Player.append(PlayerName);
+      Player.append(Playerdesc);
+      content.append(Player);
     });
   });
   //убираю событие клика по строке "Состав команды"

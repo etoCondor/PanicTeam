@@ -57,44 +57,49 @@ navNews.addEventListener("click", addNews);
 //
 //
 // *************СОЗДАЕМ СОСТАВ КОМАНДЫ*************
-const navPlayers = document.querySelector(".navPlayers");
+const navPlayers = document.querySelector(".navPlayers"),
+  content = document.querySelector(".mainclass"),
+  statusMessage = document.createElement("img");
+
 navPlayers.textContent = "Состав команды";
 
-let addPlayers = function (e) {
-  document.querySelector(".side_right").classList.add("hidden");
-  const content = document.querySelector(".mainclass");
-  content.innerHTML = "";
-  //создаю внутренности для Состава команды
-  function getPlayers(cb) {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://alpha.tl/api?clan=1");
-    xhr.addEventListener("load", () => {
-      const response = JSON.parse(xhr.responseText);
-      const responseGood = response.players;
-      const rerere = responseGood.bnetaccount;
-      cb(responseGood);
-    });
+statusMessage.src = "spinner.svg";
+statusMessage.style.cssText = `display: block;  heigth: 150px; width: 150px; margin: 0 auto; right: 0; left: 0;`;
 
-    xhr.send();
-  }
+let addPlayers = function () {
+  document.querySelector(".side_right").classList.add("hidden");
+  content.innerHTML = "";
+  content.insertAdjacentElement("afterbegin", statusMessage);
+
+  //создаю внутренности для Состава команды
+
+  fetch("https://alpha.tl/api?clan=1")
+    .then((data) => data.json())
+    .then((json) => {
+      const responseGood = json.players;
+      responseGood.forEach((post) => {
+        const Player = document.createElement("div");
+        Player.classList.add("player", post.race);
+        const PlayerName = document.createElement("div");
+        PlayerName.innerHTML = `<a href="${post.bnetaccount}" target='_blank'>${post.nickname}</a>`;
+        const Playerdesc = document.createElement("p");
+        Playerdesc.textContent = post.league;
+        Player.append(PlayerName);
+        Player.append(Playerdesc);
+        content.append(Player);
+      });
+    })
+    .catch(() => {
+      console.error("ERROR!");
+      alert("Не удалось загрузить список игроков, попробуйте еще раз!");
+    })
+    .finally(() => {
+      statusMessage.remove();
+    });
 
   content.classList.add("players");
   content.classList.remove("content");
-  getPlayers((responseGood) => {
-    const fragment = document.createDocumentFragment();
-    responseGood.forEach((post) => {
-      const Player = document.createElement("div");
-      Player.classList.add("player", post.race);
 
-      const PlayerName = document.createElement("div");
-      PlayerName.innerHTML = `<a href="${post.bnetaccount}" target='_blank'>${post.nickname}</a>`;
-      const Playerdesc = document.createElement("p");
-      Playerdesc.textContent = post.league;
-      Player.append(PlayerName);
-      Player.append(Playerdesc);
-      content.append(Player);
-    });
-  });
   //убираю событие клика по строке "Состав команды"
   navPlayers.removeEventListener("click", addPlayers);
   navNews.addEventListener("click", addNews);

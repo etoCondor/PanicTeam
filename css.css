@@ -11,6 +11,7 @@
 }
 a {
   color: white;
+  cursor: pointer;
 }
 body {
   background: url(img/2.jpg) fixed center;

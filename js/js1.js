@@ -110,21 +110,6 @@ let addPlayers = function () {
 
   //создаю внутренности для Состава команды
 
-  function renderPlayers(json) {
-    const responseGood = json.players;
-    responseGood.forEach((post) => {
-      const Player = document.createElement("div");
-      Player.classList.add("player", post.race);
-      const PlayerName = document.createElement("div");
-      PlayerName.innerHTML = `<a href="${post.bnetaccount}" target='_blank'>${post.nickname}</a>`;
-      const Playerdesc = document.createElement("p");
-      Playerdesc.textContent = post.league;
-      Player.append(PlayerName);
-      Player.append(Playerdesc);
-      content.append(Player);
-    });
-  }
-
   fetch("https://alpha.tl/api?clan=1")
     .then((data) => data.json())
     .then((json) => {

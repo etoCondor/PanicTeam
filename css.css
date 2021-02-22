@@ -102,6 +102,55 @@ li {
   border-radius: 15px;
   margin-bottom: 20px;
 }
+
+.streams {
+  float: left;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.streams > div {
+  display: inline-flex;
+  width: 430px;
+  height: 370px;
+  margin: 20px;
+  border-style: solid;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.streamImage {
+  margin: 10px 0 10px 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+}
+
+.streams > div:hover {
+  box-shadow: #4496ff 0px 0px 20px, inset #4496ff 0px 0px 20px;
+}
+.streams a {
+color: #000000;
+}
+.streams > .errorCard {
+  display: block;
+  margin: 0 auto;
+  border-style: none;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+.streams > .errorCard:hover {
+  box-shadow: none;
+}
+.errorImage {
+  border:none;
+}
 .player {
   float: left;
   width: 380px;
@@ -129,14 +178,7 @@ li {
 .PROTOSS {
   background: url(img/p.png) no-repeat left center;
 }
-#gallery {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
-  height: 400px;
-  margin-top: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-}
+
 .pic {
   height: 100%;
   width: auto;
@@ -188,8 +230,7 @@ a {
 }
 a:hover,
 a:focus,
-.navNews:hover,
-.navNews:focus {
+a:active {
   text-shadow: #4496ff 0px 0px 20px;
 }
 .content {

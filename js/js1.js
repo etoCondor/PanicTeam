@@ -51,43 +51,6 @@ let addNews = function (e) {
     navPlayers.addEventListener("click", addPlayers);
   }
   renderPosts();
-  // var news = document.createElement("div");
-  // news.classList.add("news");
-  // var pNews = document.createElement("p");
-  // pNews.innerHTML = `С фотогалереей пока не срослось, но теперь состав команды формируется из актуального ростера на Альфа-лиге.`;
-  // var author = document.createElement("div");
-  // author.classList.add("author");
-  // author.innerHTML = "Condor<br> 09.09.2020";
-  // news.append(pNews);
-  // news.append(author);
-  // //добавляю внутренности в новость
-  // content.append(news);
-
-  // var news = document.createElement("div");
-  // news.classList.add("news");
-
-  // var pNews = document.createElement("p");
-  // pNews.innerHTML = `Следующим этапом будет открытие фотогалереи и оптимизация кода. Ждем ваши отзывы и пожелания!`;
-  // var author = document.createElement("div");
-  // author.classList.add("author");
-  // author.innerHTML = "Condor<br> 07.04.2019";
-  // news.append(pNews);
-  // news.append(author);
-  // //добавляю внутренности в новость
-  // content.append(news);
-
-  // var news = document.createElement("div");
-  // news.classList.add("news");
-  // var pNews = document.createElement("p");
-  // pNews.textContent =
-  //   "Добро пожаловать на обновленный сайт команды Panic! Он почти адаптивный и в дальнейшем его ждет множество изменений, следите за новостями!";
-  // var author = document.createElement("div");
-  // author.classList.add("author");
-  // author.innerHTML = "Condor<br> 07.04.2019";
-  // news.append(pNews);
-  // news.append(author);
-  // //добавляю внутренности в новость
-  // content.append(news);
 
   //убираю событие клика по строке "Новости"
   navNews.removeEventListener("click", addNews);
@@ -186,16 +149,7 @@ let addStreams = function () {
     .then((data) => data.json())
     .then((json) => {
       if (json.data.length === 0) {
-        const errorCard = document.createElement("div");
-        errorCard.classList.add("errorCard");
-        const errorMessage = document.createElement("h2");
-        const errorImage = document.createElement("img");
-        errorMessage.textContent = "Упс! В данный момент никто не стримит :(";
-        errorImage.src = "img/pepeSad.png";
-        errorImage.classList.add("errorImage");
-        errorCard.appendChild(errorImage);
-        errorCard.appendChild(errorMessage);
-        content.append(errorCard);
+        noStreams();
       } else {
         renderStreams(json);
         console.log(json);
@@ -208,6 +162,20 @@ let addStreams = function () {
     .finally(() => {
       statusMessage.remove();
     });
+
+  function noStreams() {
+    const errorCard = document.createElement("div");
+    errorCard.classList.add("errorCard");
+    const errorMessage = document.createElement("h2");
+    const errorImage = document.createElement("img");
+    errorMessage.textContent =
+      "Упс! В данный момент никто из наших игроков не стримит :(";
+    errorImage.src = "img/pepeSad.png";
+    errorImage.classList.add("errorImage");
+    errorCard.appendChild(errorImage);
+    errorCard.appendChild(errorMessage);
+    content.append(errorCard);
+  }
 
   function renderStreams(json) {
     const responseGood = json.data;

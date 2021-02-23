@@ -25,7 +25,7 @@ body {
 .header {
   width: 100%;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.5);
   background-image: url(img/panic_blue.png);
   background-size: 280px;
   background-repeat: no-repeat;
@@ -66,7 +66,7 @@ li {
 
 .side_right {
   width: 33%;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.5);
   margin-top: 20px;
   float: right;
   border-radius: 15px;
@@ -91,7 +91,7 @@ li {
 .players {
   width: 100%;
   display: table;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.5);
   margin-top: 20px;
   padding: 60px;
   border-radius: 15px;
@@ -101,7 +101,7 @@ li {
 .streams {
   float: left;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.5);
   margin-top: 20px;
   padding: 10px;
   border-radius: 15px;
@@ -231,7 +231,7 @@ a:active {
 }
 .content {
   width: 65%;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.5);
   height: auto;
   margin-top: 20px;
   float: left;

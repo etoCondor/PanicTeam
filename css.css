@@ -21,9 +21,7 @@ body {
   width: 960px;
   margin: auto;
 }
-.clear {
-  clear: both;
-}
+
 .header {
   width: 100%;
   position: relative;
@@ -187,6 +185,7 @@ footer {
   margin-top: 20px;
   position: relative;
   width: 960px;
+  clear: both;
 }
 
 #social {

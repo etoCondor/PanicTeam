@@ -197,8 +197,6 @@ let addStreams = function () {
       const streamImage = document.createElement("img");
       streamImage.src = `https://static-cdn.jtvnw.net/previews-ttv/live_user_${stream.user_login}-480x270.jpg`;
       streamImage.classList.add("streamImage");
-      // streamCard.style = "margin: 10px";
-      // streamCard.style = "width: 45%";
       streamCard.appendChild(streamLink);
       streamLink.appendChild(streamerName);
       streamLink.appendChild(streamImage);

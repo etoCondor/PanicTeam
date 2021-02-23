@@ -162,7 +162,7 @@ let addStreams = function () {
       }
     })
     .catch(() => {
-      console.error("ERROR!");
+      console.error("ERROR! Не удалось загрузить список игроков.");
       alert("Не удалось загрузить список игроков, попробуйте еще раз!");
     })
     .finally(() => {
